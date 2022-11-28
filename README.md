@@ -67,4 +67,4 @@ See the [bsp_pinconfig README](https://github.com/sparkfun/SparkFun_Apollo3_Ambi
 - End `screen` session using: `screen -X -S [session # you want to kill] kill`
 - Build code using: `make BOARD=$BOARD bootload_svl`
 - Upload code to board with: `python3 svl.py -f $BINPATH -b $BAUD_RATE /dev/cu.usbserial-10 -v` where `BAUD_RATE=460800`.
-
+- Upload a binary file using Arduino IDE: https://forum.arduino.cc/t/uploading-a-sketch-from-a-binary-file/637085
