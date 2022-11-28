@@ -58,3 +58,13 @@ What if you want to use a custom BSP for your own board? Firstly, you can genera
 How to Generate BSP Files
 =========================
 See the [bsp_pinconfig README](https://github.com/sparkfun/SparkFun_Apollo3_AmbiqSuite_BSPs/tree/master/common/bsp_pinconfig/README.md)
+
+## Personal notes:
+- AmbiqSuite SDK downloaded from Ambiq content portal, version R2.5.1
+- `git clone` this repo recursively with subdmoules
+- Find port using `ls /dev/tty.*`
+- Read serial port using: `screen /dev/tty.[yourSerialPortName] [yourBaudRate]`
+- End `screen` session using: `screen -X -S [session # you want to kill] kill`
+- Build code using: `make BOARD=$BOARD bootload_svl`
+- Upload code to board with: `python3 svl.py -f $BINPATH -b $BAUD_RATE /dev/cu.usbserial-10 -v` where `BAUD_RATE=460800`.
+
