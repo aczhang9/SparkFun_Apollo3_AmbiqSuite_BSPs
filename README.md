@@ -66,12 +66,21 @@ See the [bsp_pinconfig README](https://github.com/sparkfun/SparkFun_Apollo3_Ambi
 - Read serial port using: `screen /dev/tty.[yourSerialPortName] [yourBaudRate]`
 - End `screen` session using: `screen -X -S [session # you want to kill] kill`
 - Build code using: `make BOARD=$BOARD bootload_svl`
-- Upload code to board with: `python3 svl.py -f $BINPATH -b $BAUD_RATE /dev/cu.usbserial-10 -v` where `BAUD_RATE=460800`.
+- Upload code to board with: 
+```
+az8797@ECE-A51960:/Users/az8797/Desktop/git/AmbiqSuite-R2.5.1/boards_sfe/common/tools_sfe/svl$ python3 svl.py -f $BINPATH -b $BAUD_RATE /dev/cu.usbserial-10 -v
+```
+where `BAUD_RATE=460800`
 - Upload a binary file using Arduino IDE: https://forum.arduino.cc/t/uploading-a-sketch-from-a-binary-file/637085
 
-Make [yes/no detector example](https://codelabs.developers.google.com/codelabs/sparkfun-tensorflow/#3) using following command.
+Make [yes/no detector example](https://codelabs.developers.google.com/codelabs/sparkfun-tensorflow/#3) using following command.  
+To compile for sparkfun board:
 ```
 Add  "--specs=nosys.specs \" to CXXFLAGS in Makefile
 Compile with:
-az8797@ECE-A51960 tflite-micro % /usr/local/bin/make -f tensorflow/lite/micro/tools/make/Makefile TARGET=cortex_m_generic TARGET_ARCH=cortex-m4 OPTIMIZED_KERNEL_DIR=cmsis_nn micro_speech_bin
+az8797@ECE-A51960:/Users/az8797/Desktop/git/tflite-micro$ /usr/local/bin/make -f tensorflow/lite/micro/tools/make/Makefile TARGET=cortex_m_generic TARGET_ARCH=cortex-m4 OPTIMIZED_KERNEL_DIR=cmsis_nn micro_speech_bin
+```
+To compile on mac:
+```
+az8797@ECE-A51960:/Users/az8797/Desktop/git/tflite-micro$ /usr/local/bin/make -f tensorflow/lite/micro/tools/make/Makefile micro_speech_bin
 ```
