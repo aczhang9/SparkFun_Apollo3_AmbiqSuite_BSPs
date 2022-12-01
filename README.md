@@ -68,3 +68,10 @@ See the [bsp_pinconfig README](https://github.com/sparkfun/SparkFun_Apollo3_Ambi
 - Build code using: `make BOARD=$BOARD bootload_svl`
 - Upload code to board with: `python3 svl.py -f $BINPATH -b $BAUD_RATE /dev/cu.usbserial-10 -v` where `BAUD_RATE=460800`.
 - Upload a binary file using Arduino IDE: https://forum.arduino.cc/t/uploading-a-sketch-from-a-binary-file/637085
+
+Make [yes/no detector example](https://codelabs.developers.google.com/codelabs/sparkfun-tensorflow/#3) using following command.
+```
+Add  "--specs=nosys.specs \" to CXXFLAGS in Makefile
+Compile with:
+az8797@ECE-A51960 tflite-micro % /usr/local/bin/make -f tensorflow/lite/micro/tools/make/Makefile TARGET=cortex_m_generic TARGET_ARCH=cortex-m4 OPTIMIZED_KERNEL_DIR=cmsis_nn micro_speech_bin
+```
