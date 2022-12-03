@@ -79,8 +79,14 @@ To compile for sparkfun board:
 Add  "--specs=nosys.specs \" to CXXFLAGS in Makefile
 Compile with:
 az8797@ECE-A51960:/Users/az8797/Desktop/git/tflite-micro$ /usr/local/bin/make -f tensorflow/lite/micro/tools/make/Makefile TARGET=cortex_m_generic TARGET_ARCH=cortex-m4 OPTIMIZED_KERNEL_DIR=cmsis_nn micro_speech_bin
+Upload to board with:
+export BIN_PATH=/Users/az8797/Desktop/git/tflite-micro/gen/cortex_m_generic_cortex-m4_default/bin/micro_speech
+python3 svl.py -f $BIN_PATH -b $BAUD_RATE /dev/cu.usbserial-110 -v
+Connect to port:
+python3 -m serial.tools.miniterm /dev/tty.usbserial-110 115200 -e
 ```
-To compile on mac:
+To compile and execute on mac:
 ```
 az8797@ECE-A51960:/Users/az8797/Desktop/git/tflite-micro$ /usr/local/bin/make -f tensorflow/lite/micro/tools/make/Makefile micro_speech_bin
+az8797@ECE-A51960:/Users/az8797/Desktop/git/tflite-micro$ gen/osx_arm64_default/bin/micro_speech
 ```
